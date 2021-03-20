@@ -21,7 +21,7 @@ class CoinbaseProStats:
         if self.last_calculated is None:
             return True
 
-        return dt.datetime.now() - self.last_calculated < self.stats_refresh_ttl
+        return dt.datetime.now() - self.last_calculated > self.stats_refresh_ttl
 
     def calculate_cost_basis(self, fill: dict) -> float:
         '''
